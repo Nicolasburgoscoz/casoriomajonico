@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #7d8471; /* Verde oliva suave de tu diseño */
-            --secondary: #d4c5b9; /* Tono arena / tierra */
-            --bg: #fcfbf9;
-            --text: #333333;
+            --primary: #a89099; /* Marrón taupo elegante */
+            --secondary: #f0e6e3; /* Rosa crema suave */
+            --bg: #f5f0ed;
+            --text: #5a5559;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,7 +29,7 @@
         /* BANNER PRINCIPAL */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('portada.jpg') center/cover fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -110,7 +110,7 @@
 
         /* SECCIÓN REGALOS */
         .gifts {
-            background-color: var(--secondary);
+            background-color: #6b5b7a;
             padding: 80px 20px;
             text-align: center;
         }
@@ -130,15 +130,89 @@
         }
         .bank-details p { color: #333; margin-bottom: 8px; font-size: 1rem; text-align: left; }
         
+        .gifts .btn-outline {
+            background: transparent;
+            color: #fff;
+            border-color: #fff;
+        }
+        .gifts .btn-outline:hover { 
+            background: #fff; 
+            color: #6b5b7a;
+            border-color: #fff;
+        }
+
+        /* CONTROLES DE MÚSICA */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #a89099, #6b5b7a);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .music-toggle.muted {
+            background: linear-gradient(135deg, #d4c5b9, #b8a89a);
+        }
+
+        @media (max-width: 700px) {
+            .music-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
         /* CIERRE Y CONFIRMACIÓN */
-        .footer { padding: 100px 20px; text-align: center; }
-        .footer h1 { font-size: 4.5rem; color: var(--primary); margin: 15px 0; font-weight: normal; }
-        .footer p { font-size: 1.1rem; margin-bottom: 30px; color: #666; }
+        .footer { padding: 100px 20px; text-align: center; background-color: #f5f0ed; }
+        .footer h1 { font-size: 4.5rem; color: #5a4d6e; margin: 15px 0; font-weight: normal; }
+        .footer p { font-size: 1.1rem; margin-bottom: 30px; color: #5a5559; }
+
+        /* ANIMACIONES DE SCROLL */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
-    <!-- PORTADA -->
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <audio id="background-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-toggle" id="music-btn" title="Silenciar/Activar música">♪</button>
     <div class="hero">
         <h1>Majo & Nico</h1>
         <p>10 de Octubre, 2026</p>
@@ -146,14 +220,14 @@
 
     <!-- CARTA DE INVITACIÓN -->
     <div class="container">
-        <h2 class="section-title">Carta de Invitación</h2>
-        <p class="intro-text">
+        <h2 class="section-title fade-in">Carta de Invitación</h2>
+        <p class="intro-text fade-in">
             Con mucho amor y una gran ilusión, nos casamos el 10 de octubre. Estamos ansiosos por compartir este día tan especial con ustedes.<br><br>
             Nosotros, Majo y Nico, nos casamos en un día lleno de amor y esperanza. Les pedimos que nos acompañen en este gran paso, compartiendo nuestra vida con quienes más amamos.
         </p>
 
         <!-- LUGAR Y FECHA -->
-        <div class="details-box">
+        <div class="details-box fade-in">
             <h2>10 de Octubre, 2026</h2>
             <p style="font-size: 1.2rem; margin-bottom: 30px; color: #444; font-weight: 500;">20:00 hs. (Hora Local)<br>La Lonja, Pilar</p>
             
@@ -168,7 +242,7 @@
 
         <!-- DRESS CODE & TIPS -->
         <div class="grid-2">
-            <div class="info-card">
+            <div class="info-card fade-in">
                 <h3>Dress Code</h3>
                 <ul>
                     <li>Se recomienda vestimenta formal de color blanco o crema.</li>
@@ -177,7 +251,7 @@
                 </ul>
             </div>
             
-            <div class="info-card">
+            <div class="info-card fade-in">
                 <h3>Tips</h3>
                 <ul>
                     <li>Por favor, confirmar su asistencia antes del 1 de septiembre.</li>
@@ -190,7 +264,7 @@
     </div>
 
     <!-- REGALOS -->
-    <div class="gifts" id="regalos">
+    <div class="gifts fade-in" id="regalos">
         <div class="container">
             <h2>Regalos y Luna de Miel</h2>
             <p>Si deseas acompañarnos en este gran viaje, te agradeceríamos mucho que nos ayudaras a financiar nuestro viaje de luna de miel. Podrías hacerlo a través de nuestra cuenta de transferencia.</p>
@@ -206,7 +280,7 @@
     </div>
 
     <!-- CIERRE -->
-    <div class="footer">
+    <div class="footer fade-in">
         <p style="text-transform: uppercase; letter-spacing: 2px; color: #999; font-size: 0.85rem; font-weight: 500;">Con amor</p>
         <h1>Majo & Nico</h1>
         
@@ -215,6 +289,54 @@
     </div>
 
     <script>
+        // Controles de música
+        const audio = document.getElementById('background-music');
+        const musicBtn = document.getElementById('music-btn');
+        let isPlaying = false;
+
+        // Intentar reproducir al cargar
+        const playAudio = () => {
+            audio.volume = 0.3; // Volumen al 30% para no molestar
+            audio.play().catch(err => {
+                console.log('Autoplay no permitido, esperando interacción del usuario');
+            });
+            isPlaying = true;
+        };
+
+        // Reproducir cuando el usuario interactúa por primera vez
+        document.addEventListener('click', () => {
+            if (!isPlaying) {
+                playAudio();
+            }
+        }, { once: true });
+
+        // Toggle de silencio/sonido
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (audio.paused) {
+                audio.play();
+                musicBtn.classList.remove('muted');
+                isPlaying = true;
+            } else {
+                audio.pause();
+                musicBtn.classList.add('muted');
+                isPlaying = false;
+            }
+        });
+
+        // Cargar volumen guardado o usar por defecto
+        const savedVolume = localStorage.getItem('musicVolume');
+        if (savedVolume) {
+            audio.volume = parseFloat(savedVolume);
+        } else {
+            audio.volume = 0.3;
+        }
+
+        // Guardar volumen cuando cambia
+        audio.addEventListener('volumechange', () => {
+            localStorage.setItem('musicVolume', audio.volume);
+        });
+
         function toggleBankDetails() {
             var x = document.getElementById("datos-bancarios");
             if (x.style.display === "none") {
@@ -223,6 +345,21 @@
                 x.style.display = "none";
             }
         }
+
+        // Scroll animation - Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 
 </body>
