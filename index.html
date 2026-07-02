@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación - Majo & Nico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7d8471; /* Verde oliva suave de tu diseño */
+            --secondary: #d4c5b9; /* Tono arena / tierra */
+            --bg: #fcfbf9;
+            --text: #333333;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* BANNER PRINCIPAL */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 { font-size: 5rem; margin-bottom: 10px; font-weight: normal; }
+        .hero p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        
+        /* CONTENEDOR GENERAL */
+        .container { max-width: 800px; margin: 0 auto; padding: 80px 20px; text-align: center; }
+        
+        .section-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; font-weight: normal; }
+        .intro-text { font-size: 1.1rem; color: #555; margin-bottom: 40px; text-align: center; max-width: 650px; margin-left: auto; margin-right: auto; }
+        
+        /* TARJETA DE DETALLES (FIESTA) */
+        .details-box {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            margin-bottom: 40px;
+        }
+        .details-box h2 { font-size: 2.2rem; margin-bottom: 15px; font-weight: normal; }
+        .details-box h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 5px; }
+        .details-box p { margin-bottom: 20px; color: #555; }
+        
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin: 10px;
+            border: 1px solid var(--primary);
+            cursor: pointer;
+        }
+        .btn:hover { background-color: #5d6353; border-color: #5d6353; }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+        }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        /* SECCIONES DOBLES (DRESS CODE Y TIPS) */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 700px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+        
+        .info-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            text-align: left;
+        }
+        .info-card h3 { color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; text-align: center; font-size: 1.5rem; }
+        .info-card ul { list-style: none; }
+        .info-card li { margin-bottom: 15px; padding-left: 20px; position: relative; font-size: 0.95rem; color: #555; }
+        .info-card li::before { content: '•'; position: absolute; left: 0; color: var(--secondary); font-size: 1.5rem; line-height: 1; top: -2px; }
+
+        /* SECCIÓN REGALOS */
+        .gifts {
+            background-color: var(--secondary);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .gifts .container { padding: 0; }
+        .gifts h2 { font-size: 2.5rem; margin-bottom: 20px; color: #fff; font-weight: normal; }
+        .gifts p { color: #fff; margin-bottom: 30px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .bank-details { 
+            background: white; 
+            padding: 25px 35px; 
+            border-radius: 10px; 
+            display: inline-block; 
+            text-align: left; 
+            margin-top: 25px; 
+            color: #333;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .bank-details p { color: #333; margin-bottom: 8px; font-size: 1rem; text-align: left; }
+        
+        /* CIERRE Y CONFIRMACIÓN */
+        .footer { padding: 100px 20px; text-align: center; }
+        .footer h1 { font-size: 4.5rem; color: var(--primary); margin: 15px 0; font-weight: normal; }
+        .footer p { font-size: 1.1rem; margin-bottom: 30px; color: #666; }
+    </style>
+</head>
+<body>
+
+    <!-- PORTADA -->
+    <div class="hero">
+        <h1>Majo & Nico</h1>
+        <p>10 de Octubre, 2026</p>
+    </div>
+
+    <!-- CARTA DE INVITACIÓN -->
+    <div class="container">
+        <h2 class="section-title">Carta de Invitación</h2>
+        <p class="intro-text">
+            Con mucho amor y una gran ilusión, nos casamos el 10 de octubre. Estamos ansiosos por compartir este día tan especial con ustedes.<br><br>
+            Nosotros, Majo y Nico, nos casamos en un día lleno de amor y esperanza. Les pedimos que nos acompañen en este gran paso, compartiendo nuestra vida con quienes más amamos.
+        </p>
+
+        <!-- LUGAR Y FECHA -->
+        <div class="details-box">
+            <h2>10 de Octubre, 2026</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: #444; font-weight: 500;">20:00 hs. (Hora Local)<br>La Lonja, Pilar</p>
+            
+            <h3>La Loba Eventos</h3>
+            <p style="color: #666; font-size: 0.95rem;">El Benteveo 3357, 1629 Pilar, Provincia de Buenos Aires</p>
+            
+            <div style="margin-top: 35px;">
+                <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=YzRzajBlOW9jNHAzY2JiNDY4bzNhYjlrNzRxNjhiOW83NHAzY2I5ajZncWoyZHI0NmdzMzJjcG42byBuaWNvLmJ1cmdvc2NvekBt&tmsrc=nico.burgoscoz%40gmail.com" target="_blank" class="btn btn-outline">Agendar en Calendar</a>
+                <a href="https://maps.app.goo.gl/Kr3CufX873UZ7ZJn6" target="_blank" class="btn">Cómo Llegar</a>
+            </div>
+        </div>
+
+        <!-- DRESS CODE & TIPS -->
+        <div class="grid-2">
+            <div class="info-card">
+                <h3>Dress Code</h3>
+                <ul>
+                    <li>Se recomienda vestimenta formal de color blanco o crema.</li>
+                    <li>Las mujeres pueden optar por un vestido de corte clásico.</li>
+                    <li>Los hombres deben estar vestidos con traje de color blanco.</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3>Tips</h3>
+                <ul>
+                    <li>Por favor, confirmar su asistencia antes del 1 de septiembre.</li>
+                    <li>El evento tendrá lugar en el jardín de la casa familiar.</li>
+                    <li>Recomendamos llevar un abrigo de invierno para el almuerzo.</li>
+                    <li>El lugar de la boda es accesible para personas en silla de ruedas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- REGALOS -->
+    <div class="gifts" id="regalos">
+        <div class="container">
+            <h2>Regalos y Luna de Miel</h2>
+            <p>Si deseas acompañarnos en este gran viaje, te agradeceríamos mucho que nos ayudaras a financiar nuestro viaje de luna de miel. Podrías hacerlo a través de nuestra cuenta de transferencia.</p>
+            
+            <button class="btn btn-outline" style="color:white; border-color:white;" onclick="toggleBankDetails()">Ver Datos de Transferencia</button>
+            
+            <div id="datos-bancarios" class="bank-details" style="display: none;">
+                <p><strong>Alias:</strong> TU.ALIAS.AQUI</p>
+                <p><strong>CBU:</strong> 0000000000000000000000</p>
+                <p><strong>Titular:</strong> Majo y Nico</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CIERRE -->
+    <div class="footer">
+        <p style="text-transform: uppercase; letter-spacing: 2px; color: #999; font-size: 0.85rem; font-weight: 500;">Con amor</p>
+        <h1>Majo & Nico</h1>
+        
+        <!-- REEMPLAZÁ EL TELÉFONO ACÁ ABAJO (Cambiá el 5491100000000 por tu número real con código de área) -->
+        <a href="https://wa.me/5491100000000?text=%C2%A1Hola%20Majo%20y%20Nico!%20Queremos%20confirmar%20nuestra%20asistencia%20a%20su%20casamiento.%20%F0%9F%A5%82" target="_blank" class="btn">Confirmar Asistencia</a>
+    </div>
+
+    <script>
+        function toggleBankDetails() {
+            var x = document.getElementById("datos-bancarios");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
