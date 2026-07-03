@@ -17,7 +17,7 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg);
+            background: linear-gradient(180deg, #f7f2f9 0%, #efe7f2 100%);
             color: var(--text);
             line-height: 1.6;
         }
@@ -87,7 +87,36 @@
         .details-box h2 { font-size: 2.2rem; margin-bottom: 15px; font-weight: normal; }
         .details-box h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 5px; }
         .details-box p { margin-bottom: 20px; color: #555; }
-        
+
+        .section-floral {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(168, 144, 153, 0.16);
+            background-clip: padding-box;
+        }
+        .section-floral::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(186, 152, 220, 0.14), transparent 25%),
+                radial-gradient(circle at 80% 18%, rgba(197, 164, 222, 0.12), transparent 22%),
+                radial-gradient(circle at 50% 75%, rgba(220, 200, 242, 0.16), transparent 28%);
+            opacity: 1;
+        }
+        .section-floral::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,242,250,0.9));
+        }
+        .section-floral > * {
+            position: relative;
+            z-index: 1;
+        }
+
         /* BOTONES */
         .btn {
             display: inline-block;
@@ -267,6 +296,19 @@
         .footer h1 { font-size: 4.5rem; color: #5a4d6e; margin: 15px 0; font-weight: normal; }
         .footer p { font-size: 1.1rem; margin-bottom: 30px; color: #5a5559; }
 
+        .site-footer {
+            padding: 20px 20px 40px;
+            text-align: center;
+            color: #6c5c81;
+            font-size: 0.95rem;
+            background: linear-gradient(180deg, rgba(247,242,249,0.95), rgba(239,230,244,0.95));
+            border-top: 1px solid rgba(156, 129, 176, 0.18);
+        }
+        .site-footer p {
+            margin: 0 auto;
+            max-width: 640px;
+        }
+
         /* ANIMACIONES DE SCROLL */
         @keyframes fadeInUp {
             from {
@@ -319,7 +361,7 @@
     <div class="container">
 
         <!-- LUGAR Y FECHA -->
-        <div class="details-box fade-in">
+        <div class="details-box fade-in section-floral">
             <h2>10 de Octubre, 2026</h2>
             <p style="font-size: 1.2rem; margin-bottom: 30px; color: #444; font-weight: 500;">20:00 hs - 4:00 hs<br>La Lonja, Pilar</p>
             
@@ -332,7 +374,7 @@
             </div>
         </div>
 
-        <div class="countdown-box fade-in">
+        <div class="countdown-box fade-in section-floral">
             <h3>Falta poco para nuestro gran día</h3>
             <div class="countdown-grid" id="countdown-timer">
                 <div class="countdown-card">
@@ -356,7 +398,7 @@
 
         <!-- DRESS CODE & TIPS -->
         <div class="grid-2">
-            <div class="info-card fade-in">
+            <div class="info-card fade-in section-floral">
                 <h3>DRESS CODE</h3>
                 <div style="text-align: center; margin-bottom: 20px;">
                     <p style="font-size: 1.1rem; color: var(--primary); font-weight: 500; margin-bottom: 15px;">Elegante</p>
@@ -365,7 +407,7 @@
                 </div>
             </div>
             
-            <div class="info-card fade-in">
+            <div class="info-card fade-in section-floral">
                 <h3>TIPS</h3>
                 <ul>
                     <li>• ¡Por favor ser puntuales!</li>
@@ -395,12 +437,16 @@
     </div>
 
     <!-- CIERRE -->
-    <div class="footer fade-in">
+    <div class="footer fade-in section-floral">
         <p style="text-transform: uppercase; letter-spacing: 2px; color: #999; font-size: 0.85rem; font-weight: 500;">Con amor</p>
         <h1>Majo & Nico</h1>
         
         <!-- REEMPLAZÁ EL TELÉFONO ACÁ ABAJO (Cambiá el 5491100000000 por tu número real con código de área) -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScBkrQ7qqcH0xu-6gmGQeIbgxuVdjZB3u3OHTo14R87-S-cbA/viewform?usp=publish-editor" target="_blank" class="btn">Confirmar Asistencia</a>
+    </div>
+
+    <div class="site-footer">
+        <p>© Hecho por nico el 9/12/18</p>
     </div>
 
     <script>
