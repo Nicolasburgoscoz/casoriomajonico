@@ -152,6 +152,23 @@
         @media (max-width: 700px) {
             .grid-2 { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3.5rem; }
+            .footer-with-image .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-with-image .footer-content {
+                text-align: center;
+            }
+            .footer-with-image .footer-image {
+                width: 100%;
+                max-width: 450px;
+            }
+            .footer-with-image .footer-image img {
+                margin: 0 auto;
+            }
+            .footer-with-image .footer-inner {
+                gap: 20px;
+            }
         }
         
         .info-card {
@@ -292,8 +309,14 @@
         }
         
         /* CIERRE Y CONFIRMACIÓN */
-        .footer { padding: 100px 20px; text-align: center; background-color: #f5f0ed; }
-        .footer h1 { font-size: 4.5rem; color: #5a4d6e; margin: 15px 0; font-weight: normal; }
+        .footer { padding: 100px 20px; background-color: #f5f0ed; }
+        .footer-with-image .footer-inner { display: flex; align-items: center; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto; }
+        .footer-with-image .footer-image { flex: 0 0 320px; max-width: 320px; }
+        .footer-with-image .footer-image img { width: 100%; height: auto; border-radius: 20px; display: block; box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .footer-with-image .footer-content { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 420px; }
+        .footer-with-image .footer-tag { text-transform: uppercase; letter-spacing: 2px; color: #999; font-size: 0.85rem; font-weight: 500; margin-bottom: 12px; }
+        .footer-with-image h1 { font-size: 4.5rem; color: #5a4d6e; margin: 15px 0; font-weight: normal; }
+        .footer-with-image .btn { margin-top: 10px; align-self: center; }
         .footer p { font-size: 1.1rem; margin-bottom: 30px; color: #5a5559; }
 
         .site-footer {
@@ -437,12 +460,17 @@
     </div>
 
     <!-- CIERRE -->
-    <div class="footer fade-in section-floral">
-        <p style="text-transform: uppercase; letter-spacing: 2px; color: #999; font-size: 0.85rem; font-weight: 500;">Con amor</p>
-        <h1>Majo & Nico</h1>
-        
-        <!-- REEMPLAZÁ EL TELÉFONO ACÁ ABAJO (Cambiá el 5491100000000 por tu número real con código de área) -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScBkrQ7qqcH0xu-6gmGQeIbgxuVdjZB3u3OHTo14R87-S-cbA/viewform?usp=publish-editor" target="_blank" class="btn">Confirmar Asistencia</a>
+    <div class="footer fade-in section-floral footer-with-image">
+        <div class="footer-inner">
+            <div class="footer-image">
+                <img src="nico majo playa.jpg" alt="Nico y Majo en la playa">
+            </div>
+            <div class="footer-content">
+                <p class="footer-tag">Con amor</p>
+                <h1>Majo & Nico</h1>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScBkrQ7qqcH0xu-6gmGQeIbgxuVdjZB3u3OHTo14R87-S-cbA/viewform?usp=publish-editor" target="_blank" class="btn">Confirmar Asistencia</a>
+            </div>
+        </div>
     </div>
 
     <div class="site-footer">
