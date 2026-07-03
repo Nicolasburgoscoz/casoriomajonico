@@ -227,12 +227,18 @@
 
         .fade-in {
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in.visible {
             opacity: 1;
+            transform: translateY(0);
         }
+
+        .fade-in.delay-1 { transition-delay: 0.2s; }
+        .fade-in.delay-2 { transition-delay: 0.35s; }
+        .fade-in.delay-3 { transition-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -242,7 +248,7 @@
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
     <button class="music-toggle" id="music-btn" title="Silenciar/Activar música">♪</button>
-    <div class="hero">
+    <div class="hero fade-in delay-1">
         <h1>Majo & Nico</h1>
         <p>¡Nos casamos!</p>
         <div style="max-width: 700px; margin-top: 40px; padding: 0 20px;">
@@ -267,7 +273,7 @@
             <p style="color: #666; font-size: 0.95rem;">El Benteveo 3357, 1629 Pilar, Provincia de Buenos Aires</p>
             
             <div style="margin-top: 35px;">
-                <a href="https://calendar.app.google/Wi3uACmNbiAyZC7Z8" target="_blank" class="btn btn-outline">Agendar en el Calendario</a>
+                <a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=Mmkxb2tzM2lnbzhxdjZnZ28xMHVtNnVmcTUgbmljby5idXJnb3Njb3pAbQ&tmsrc=nico.burgoscoz%40gmail.com" target="_blank" class="btn btn-outline">Agendar en el Calendario</a>
                 <a href="https://maps.app.goo.gl/Kr3CufX873UZ7ZJn6" target="_blank" class="btn">Cómo Llegar</a>
             </div>
         </div>
@@ -393,6 +399,12 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Activar animaciones del hero al cargar si está en viewport
+        const hero = document.querySelector('.hero.fade-in');
+        if (hero && hero.getBoundingClientRect().top < window.innerHeight) {
+            hero.classList.add('visible');
+        }
     </script>
 
 </body>
